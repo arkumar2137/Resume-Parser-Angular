@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resume-checker',
@@ -10,11 +11,17 @@ export class ResumeCheckerComponent implements OnInit {
 
   profiles!: Profile[];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  faker(){
+
+    this.http.get('http://localhost:5000/faker').subscribe(
+      resp => {console.log(resp)}
+    );
+  }
 
   ngOnInit(): void {
-  
-  
+
   this.profiles = [
     {
       "name": "Cristina",
@@ -33,7 +40,5 @@ export class ResumeCheckerComponent implements OnInit {
       "score": "A"
     }
   ];
-  
   }
-
 }

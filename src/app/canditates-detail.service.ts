@@ -9,9 +9,10 @@ export class CanditatesDetailService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://127.0.0.1:5000/job-description';
+  private baseUrl = 'http://127.0.0.1:5000/candidates';
 
   getCandidate(): Observable<any[]>{
+    
     return this.http.get<any[]>(`${this.baseUrl}`);
   }
 

@@ -19,6 +19,7 @@ export class ReqresComponent implements OnInit {
     this._reqresService.getAllProfilesData().subscribe(
       response => {
         this.variable = response;
+        console.log(response);
         this.reqres = response.data;
       }
     )
