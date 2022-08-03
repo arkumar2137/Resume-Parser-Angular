@@ -1,5 +1,24 @@
 <app-home></app-home>
-<app-upload></app-upload>
+
+<div class="row">
+  <div col="col-md-6">
+      <form class="center">
+          <div class="form-group">
+              <input type="text" ><br />
+          </div>
+          <div class="form-group">
+              <input  type="file" name="profile" >
+          </div>
+          <div class="form-group">
+              <button mat-flat-button color="primary" type="submit" class="btn btn-success" >Upload</button>
+          </div>
+          <!-- <div class="form-group">
+              <button mat-flat-button color="secondary" type="submit" class="btn btn-success" (click)="onRefresh()" 
+              style="margin-left: 10px;" >Refresh</button> 
+          </div> -->
+      </form>
+  </div>
+</div>
 
 <div class="row">
   <div col="col-md-6">
@@ -12,8 +31,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let element of elements ">
-        <td>{{ element.jd}}</td>
-        <td><mat-icon>eco</mat-icon></td>
+        <!-- <td>{{ element.jd }}</td>
+        <td><mat-icon>eco</mat-icon></td> -->
       </tr>
       </tbody>
     </table>

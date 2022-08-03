@@ -24,32 +24,34 @@
 <table class="table table-striped">
   <thead>
       <tr>
-          <th> Candidates Name</th>
-          <th> Contact Number</th>
-          <th> Email Address </th>
-          <th> Company Name </th>
-          <th> Experience </th>
-          <th> Qualification </th>
-          <th> Skills  </th>
-          <th> Edit </th>
-          <th> Delete</th>
+          <th style="width:5%"> Candidates Name</th>
+        <!--  <th style="width:10%"> Contact Number</th>
+          <th style="width:10%"> Email Address </th>
+          <th style="width:10%"> Company Name </th>
+          <th style="width:10%"> Experience </th>
+          <th style="width:10%"> Qualification </th>
+          <th style="width:50%"> Skills  </th>
+          <th style="width:10%"> Edit </th>  -->
+          <th style="width:90%" contenteditable="true"> Skills  </th>
+          <th style="width:2.5%"> Edit </th>
+          <th style="width:2.5%"> Delete </th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let candidate of candidates">
-          <td>{{ candidate['Candidates Name']}}</td>
-          <td>{{ candidate['Contact Number']}}</td>
+          <td>{{ candidate['NAME']}}</td>
+        <!--  <td>{{ candidate['Contact Number']}}</td>
           <td>{{ candidate['Email Address']}}</td>
           <td>{{ candidate['Company Name']}}</td>
           <td>{{ candidate.Experience}}</td>
-          <td>{{ candidate.Qualification}}</td>
-          <td>{{ candidate.Skills}}</td>
+          <td>{{ candidate.Qualification}}</td> 
+          <td>{{ candidate.SKILLS}}</td>
+          <td><mat-icon>edit</mat-icon></td>
+          <td><mat-icon>delete</mat-icon></td> -->
+          <td>{{ candidate.SKILLS}}</td>
           <td><mat-icon>edit</mat-icon></td>
           <td><mat-icon>delete</mat-icon></td>
       </tr>
   </tbody>
 </table>
-
-<!-- <button name="tableButton" (click)="getTable()">Go</button> -->
-
 </div>

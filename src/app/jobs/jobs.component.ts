@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CanditatesDetailService } from '../canditates-detail.service';
 
 @Component({
   selector: 'app-jobs',
@@ -7,11 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobsComponent implements OnInit {
 
-  elements: any=[];
+  elements = [];
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
+
 
 }

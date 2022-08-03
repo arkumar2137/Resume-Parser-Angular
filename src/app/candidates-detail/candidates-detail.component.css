@@ -7,9 +7,6 @@ table {
     width: 100%;
   }
   
-  td, th {
-    width: 25%;
-  }
 
   .somecss{
     border-radius: 10px;

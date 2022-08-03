@@ -5,10 +5,14 @@
                 <input type="text" (change)="getName(name)"><br />
             </div>
             <div class="form-group">
-                <input type="file" name="profile" (change)="getFile($event)">
+                <input  type="file" name="profile" multiple (change)="getFile($event)">
             </div>
             <div class="form-group">
                 <button mat-flat-button color="primary" type="submit" class="btn btn-success" (click)="onSubmit()" >Upload</button>
+            </div>
+            <div class="form-group">
+                <button mat-flat-button color="secondary" type="submit" class="btn btn-success" (click)="onRefresh()" 
+                style="margin-left: 10px;" >Refresh List</button>
             </div>
         </form>
     </div>

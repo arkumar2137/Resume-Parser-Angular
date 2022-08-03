@@ -11,14 +11,13 @@ export class CandidatesDetailComponent implements OnInit  {
 
   candidates:any=[];
   
-  private baseURL = "http://localhost:5000/candidates";
-
   constructor(private http : HttpClient, private candidateService : CanditatesDetailService) { }
 
   ngOnInit(): void {
     
     this.candidates = this.candidateService.getCandidate().subscribe(
       (data) => { 
+        console.log(data)
         this.candidates = data;
       }
     )      

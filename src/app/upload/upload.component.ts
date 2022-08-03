@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UploadService } from '../upload.service';
+import { Router } from '@angular/router';
+import { CanditatesDetailService } from '../canditates-detail.service';
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -25,67 +27,34 @@ export class UploadComponent implements OnInit {
     console.log('file', this.files);
   }
 
-  constructor(private fb: FormBuilder, private fileUploadService: UploadService, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private canditatesDetailService: CanditatesDetailService) { }
 
   ngOnInit() {
     
   }
 
-  getPdf(event: any){
-    this.pdfFile = event.target.files[0];
-    console.log(this.pdfFile);
-  }
-
-  
-
-   getBase64(pdfFile:any) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(pdfFile);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });
-  }
-
-  onSelectedFile(event: any){
-    if(event.target.files.length > 0){
-      const profile = event.target.files[0];
-      this.profileForm.get('profile').setValue(profile);
-    }
-    console.log("This is the uploaded file: " + event.target.files);
-  }
-
   onSubmit(){
-    
-    /*
-    formData.append('name', this.profileForm.get('name').value);
-    formData.append('profile', this.profileForm.get('profile').value);
 
-    this.fileUploadService.upload(formData).subscribe(res => {console.log(res)});
-    */
-   console.log('button pressed');
+    console.log('button pressed');
     let formData = new FormData();
     formData.set("name", this.name);
-    formData.set("file", this.files);
+    formData.set("resume_file", this.files);
 
-    this.http.post('http://localhost:8080/uploadFile', formData).subscribe(
+    this.http.post('http://localhost:5000/uploads_resume', formData).subscribe(
       resp => {}
     )
+
+    this.goToCandidatesList();
 
   }
 
-  getEncodedFiles(){
-    this.getBase64(this.pdfFile).then(
-      response => { this.result = response}).then(
-        () => {console.log(this.result)
-      
-        let formData = new FormData();
-        formData.set("base64", this.result);
+  goToCandidatesList(){
+    alert("File Successfully Uploaded")
+    this.router.navigate(['/candidates-detail']);
+  }
 
-    this.http.post('http://localhost:4000/CheckOn', formData).subscribe(
-      resp => {}
-    )
-  });
+  onRefresh(){
+    window.location.reload();
   }
 
 }
